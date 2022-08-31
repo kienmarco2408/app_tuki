@@ -8,6 +8,13 @@ import { Ionicons } from '@expo/vector-icons';
 import SignUp from './src/screens/SignUp';
 import SignIn from './src/screens/SignIn';
 import OnBoarding_1 from './src/screens/onboarding/onBoarding_1';
+import OnBoarding_3 from './src/screens/onboarding/onBoarding_3';
+import OnBoarding_2 from './src/screens/onboarding/onBoarding_2';
+
+import Home from './src/screens/Home';
+import Search from './src/screens/Search';
+import Bookmarks from './src/screens/Bookmarks';
+import Profile from './src/screens/Profile';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -17,43 +24,36 @@ const BottomTabScreen = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarHideOnKeyboard: true,
-        tabBarActiveTintColor: '#FB7A41',
+        tabBarActiveTintColor: '#447DB9',
         tabBarInactiveTintColor: 'grey',
         tabBarShowLabel: false,
         headerShown: false,
         tabBarStyle: {
           position: 'absolute',
           borderTopColor: 'rgba(0, 0, 0, .2)',
-          height: 60,
+          height: 80,
           shadowOpacity: 0.25,
         },
 
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;
           if (route.name === 'Home') {
-            iconName = focused ? 'home-outline' : 'home-outline';
-            size = focused ? size + 2 : size + 2;
-          } else if (route.name === 'Save') {
-            iconName = focused
-              ? 'ios-bookmarks-outline'
-              : 'ios-bookmarks-outline';
-          } else if (route.name === 'Reels') {
-            iconName = focused
-              ? 'caret-forward-circle'
-              : 'caret-forward-circle-outline';
-          } else if (route.name === 'Explore') {
-            iconName = focused ? 'md-compass-outline' : 'md-compass-outline';
+            iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'Search') {
+            iconName = focused ? 'md-search' : 'search';
+          } else if (route.name === 'Bookmarks') {
+            iconName = focused ? 'ios-bookmarks' : 'ios-bookmarks-outline';
           } else if (route.name === 'Profile') {
-            iconName = focused ? 'person-outline' : 'person-outline';
+            iconName = focused ? 'person' : 'person-outline';
           }
 
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return <Ionicons name={iconName} size={30} color={color} />;
         },
       })}
     >
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Save" component={Save} />
-      <Tab.Screen name="Explore" component={Explore} />
+      <Tab.Screen name="Search" component={Search} />
+      <Tab.Screen name="Bookmarks" component={Bookmarks} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
@@ -66,6 +66,8 @@ function App() {
         <Stack.Screen name="Signin" component={SignIn} />
         <Stack.Screen name="Signup" component={SignUp} />
         <Stack.Screen name="OnBoarding_1" component={OnBoarding_1} />
+        <Stack.Screen name="OnBoarding_2" component={OnBoarding_2} />
+        <Stack.Screen name="OnBoarding_3" component={OnBoarding_3} />
         <Stack.Screen name="Bottom" component={BottomTabScreen} />
       </Stack.Navigator>
     </>

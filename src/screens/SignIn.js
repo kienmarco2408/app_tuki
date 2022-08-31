@@ -6,8 +6,9 @@ import {
   SafeAreaView,
   TextInput,
   StatusBar,
+  Button,
 } from 'react-native';
-import { NativeBaseProvider, Button } from 'native-base';
+import { NativeBaseProvider } from 'native-base';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -15,6 +16,10 @@ import { useFonts } from 'expo-font';
 function SignIn() {
   const navigation = useNavigation();
   const [loaded] = useFonts({
+    NunitoSans_Regular: require('../../assets/Nunito_Sans/NunitoSans-Regular.ttf'),
+    NunitoSans_SemiBold: require('../../assets/Nunito_Sans/NunitoSans-SemiBold.ttf'),
+    NunitoSans_ExtraBold: require('../../assets/Nunito_Sans/NunitoSans-ExtraBold.ttf'),
+    NunitoSans_Black: require('../../assets/Nunito_Sans/NunitoSans-Black.ttf'),
     Montserrat_Light: require('../../assets/Montserrat/Montserrat-Light.ttf'),
     Montserrat_SemiBold: require('../../assets/Montserrat/Montserrat-Medium.ttf'),
     Montserrat_Bold: require('../../assets/Montserrat/Montserrat-Bold.ttf'),
@@ -26,6 +31,33 @@ function SignIn() {
     <SafeAreaView>
       <StatusBar barStyle="dark-content" />
       <View>
+        <View
+          style={{ width: 117, height: 50, marginLeft: 150, marginTop: 40 }}
+        >
+          <Text
+            style={{
+              fontFamily: 'NunitoSans_Black',
+              textTransform: 'uppercase',
+              color: '#99C0E9',
+              textAlign: 'center',
+              fontSize: 26,
+              lineHeight: 35.46,
+            }}
+          >
+            a<Text style={{ color: '#447DB9' }}>kid</Text>ta
+          </Text>
+          <Text
+            style={{
+              color: '#99C0E9',
+              fontFamily: 'NunitoSans_Regular',
+              fontSize: 14,
+              lineHeight: 19.1,
+              textAlign: 'center',
+            }}
+          >
+            Cùng con khôn lớn
+          </Text>
+        </View>
         <View>
           <Text
             style={{
@@ -36,18 +68,6 @@ function SignIn() {
             }}
           >
             Sign in
-          </Text>
-        </View>
-        <View>
-          <Text
-            style={{
-              fontFamily: 'Montserrat_Bold',
-              fontSize: 24,
-              marginLeft: 16,
-              color: '#107AF5',
-            }}
-          >
-            Welcome Back
           </Text>
         </View>
 
@@ -61,7 +81,6 @@ function SignIn() {
                 marginRight: 16,
                 paddingLeft: 19,
                 borderWidth: 1,
-                marginTop: 64,
                 borderRadius: 6,
                 fontFamily: 'Montserrat_SemiBold',
               }}
@@ -105,27 +124,20 @@ function SignIn() {
         {/* Button*/}
 
         <View
-          colors={'#FB7A41'}
-          style={{ marginHorizontal: 16, borderRadius: 6 }}
+          style={{
+            width: 350,
+            height: 48,
+            backgroundColor: '#447DB9',
+            borderRadius: 13,
+            padding: 5,
+            marginLeft: 30,
+          }}
         >
           <Button
+            title="Log in"
+            color="white"
             onPress={() => navigation.push('OnBoarding_1')}
-            style={{
-              height: 48,
-              width: 396,
-              backgroundColor: 'transparent',
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 16,
-                fontFamily: 'Montserrat_SemiBold',
-                color: 'white',
-              }}
-            >
-              Login
-            </Text>
-          </Button>
+          />
         </View>
 
         <View
@@ -149,7 +161,7 @@ function SignIn() {
               style={{
                 fontFamily: 'Montserrat_SemiBold',
                 fontSize: 16,
-                color: '#FB7A41',
+                color: '#447DB9',
               }}
             >
               Sign Up

@@ -1,4 +1,11 @@
-import { View, Text, SafeAreaView, Image, Button } from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Image,
+  Button,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -8,11 +15,14 @@ const OnBoarding_1 = () => {
   const navigation = useNavigation();
   const [loaded] = useFonts({
     NunitoSans_Light: require('../../../assets/Nunito_Sans/NunitoSans-Light.ttf'),
-    MNunitoSans_SemiBold: require('../../../assets/Nunito_Sans/NunitoSans-SemiBold.ttf'),
+    NunitoSans_SemiBold: require('../../../assets/Nunito_Sans/NunitoSans-SemiBold.ttf'),
     NunitoSans_ExtraBold: require('../../../assets/Nunito_Sans/NunitoSans-ExtraBold.ttf'),
+    NunitoSans_Black: require('../../../assets/Nunito_Sans/NunitoSans-Black.ttf'),
+    NunitoSans_Regular: require('../../../assets/Nunito_Sans/NunitoSans-Regular.ttf'),
     Montserrat_Light: require('../../../assets/Montserrat/Montserrat-Light.ttf'),
     Montserrat_SemiBold: require('../../../assets/Montserrat/Montserrat-Medium.ttf'),
     Montserrat_Bold: require('../../../assets/Montserrat/Montserrat-Bold.ttf'),
+    Montserrat_Regular: require('../../../assets/Montserrat/Montserrat-Regular.ttf'),
   });
   if (!loaded) {
     return null;
@@ -22,7 +32,7 @@ const OnBoarding_1 = () => {
       <View style={{ width: 117, height: 50, marginLeft: 150, marginTop: 40 }}>
         <Text
           style={{
-            fontFamily: 'NunitoSans_ExtraBold',
+            fontFamily: 'NunitoSans_Black',
             textTransform: 'uppercase',
             color: '#99C0E9',
             textAlign: 'center',
@@ -35,7 +45,7 @@ const OnBoarding_1 = () => {
         <Text
           style={{
             color: '#99C0E9',
-            fontFamily: 'NunitoSans_Light',
+            fontFamily: 'NunitoSans_Regular',
             fontSize: 14,
             lineHeight: 19.1,
             textAlign: 'center',
@@ -76,6 +86,7 @@ const OnBoarding_1 = () => {
             style={{ alignSelf: 'center', marginLeft: 8, color: 'grey' }}
           />
         </View>
+
         <View>
           <Text
             style={{
@@ -129,7 +140,11 @@ const OnBoarding_1 = () => {
           marginLeft: 55,
         }}
       >
-        <Button title="Đi Tiếp" color="white" />
+        <Button
+          title="Đi Tiếp"
+          color="white"
+          onPress={() => navigation.push('OnBoarding_2')}
+        />
       </View>
     </SafeAreaView>
   );
