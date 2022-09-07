@@ -15,6 +15,11 @@ import Home from './src/screens/Home';
 import Search from './src/screens/Search';
 import Bookmarks from './src/screens/Bookmarks';
 import Profile from './src/screens/Profile';
+import Test from './src/screensComponent/Test';
+import TestDone from './src/screensComponent/TestDone';
+import Quiz1 from './src/screens/Quiz1';
+import Quiz2 from './src/screens/Quiz2';
+import Result from './src/screens/Result';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -68,6 +73,11 @@ function App() {
         <Stack.Screen name="OnBoarding_1" component={OnBoarding_1} />
         <Stack.Screen name="OnBoarding_2" component={OnBoarding_2} />
         <Stack.Screen name="OnBoarding_3" component={OnBoarding_3} />
+        <Stack.Screen name="Test" component={Test} />
+        <Stack.Screen name="TestDone" component={TestDone} />
+        <Stack.Screen name="Quiz1" component={Quiz1} />
+        <Stack.Screen name="Quiz2" component={Quiz2} />
+        <Stack.Screen name="Result" component={Result} />
         <Stack.Screen name="Bottom" component={BottomTabScreen} />
       </Stack.Navigator>
     </>

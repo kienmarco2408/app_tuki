@@ -8,10 +8,10 @@ import {
   StyleSheet,
 } from 'react-native';
 import React, { useState } from 'react';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Ionicons } from '@expo/vector-icons';
 import PopupInfor from './PopupInfor';
 
-const Test = () => {
+const Test = ({ navigation }) => {
   const [visible, setVisible] = useState(false);
   return (
     <View>
@@ -51,12 +51,18 @@ const Test = () => {
         }}
       >
         <PopupInfor visible={visible}>
+          <TouchableOpacity onPress={() => setVisible(false)}>
+            <View
+              style={{ marginLeft: 'auto', marginRight: 12, marginTop: 12 }}
+            >
+              <Ionicons name="close" size={20} color="white" />
+            </View>
+          </TouchableOpacity>
           <Text
             style={{
               fontFamily: 'Montserrat_Bold',
               color: '#FFFFFF',
               textAlign: 'center',
-              marginTop: 19,
               letterSpacing: '1.2%',
               lineHeight: 19.5,
             }}
@@ -186,20 +192,11 @@ const Test = () => {
         <Button
           title="Kiểm Tra"
           color="white"
-          //   onPress={() => navigation.push('OnBoarding_3')}
+          onPress={() => navigation.navigate('TestDone')}
         />
       </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  header: {
-    width: '100%',
-    height: 40,
-    alignItems: 'flex-end',
-    justifyContent: 'center',
-  },
-});
 
 export default Test;
