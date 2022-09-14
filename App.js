@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, Image, Text } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import { Ionicons } from '@expo/vector-icons';
+import { Feather, Ionicons } from '@expo/vector-icons';
 import SignUp from './src/screens/SignUp';
 import SignIn from './src/screens/SignIn';
 import OnBoarding_1 from './src/screens/onboarding/onBoarding_1';
@@ -20,6 +20,8 @@ import TestDone from './src/screensComponent/TestDone';
 import Quiz1 from './src/screens/Quiz1';
 import Quiz2 from './src/screens/Quiz2';
 import Result from './src/screens/Result';
+import Maps from './src/screens/Maps';
+import Detail_Profes from './src/screens/Detail_Profes';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -43,21 +45,24 @@ const BottomTabScreen = () => {
         tabBarIcon: ({ focused, size, color }) => {
           let iconName;
           if (route.name === 'Home') {
-            iconName = focused ? 'home' : 'home-outline';
+            iconName = focused ? 'home' : 'home';
           } else if (route.name === 'Search') {
-            iconName = focused ? 'md-search' : 'search';
+            iconName = focused ? 'search' : 'search';
+          } else if (route.name === 'Maps') {
+            iconName = focused ? 'map' : 'map';
           } else if (route.name === 'Bookmarks') {
-            iconName = focused ? 'ios-bookmarks' : 'ios-bookmarks-outline';
+            iconName = focused ? 'bookmark' : 'bookmark';
           } else if (route.name === 'Profile') {
-            iconName = focused ? 'person' : 'person-outline';
+            iconName = focused ? 'user' : 'user';
           }
 
-          return <Ionicons name={iconName} size={30} color={color} />;
+          return <Feather name={iconName} size={30} color={color} />;
         },
       })}
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Search" component={Search} />
+      <Tab.Screen name="Maps" component={Maps} />
       <Tab.Screen name="Bookmarks" component={Bookmarks} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
@@ -78,6 +83,7 @@ function App() {
         <Stack.Screen name="Quiz1" component={Quiz1} />
         <Stack.Screen name="Quiz2" component={Quiz2} />
         <Stack.Screen name="Result" component={Result} />
+        <Stack.Screen name="Detail_Profes" component={Detail_Profes} />
         <Stack.Screen name="Bottom" component={BottomTabScreen} />
       </Stack.Navigator>
     </>
