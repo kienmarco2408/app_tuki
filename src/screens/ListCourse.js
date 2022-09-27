@@ -15,7 +15,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import { Button, Center } from 'native-base';
 import { inlineStyles } from 'react-native-svg';
 
-const Bookmarks = ({ navigation }) => {
+const ListCourse = ({ navigation }) => {
   return (
     <SafeAreaView>
       <View>
@@ -30,7 +30,7 @@ const Bookmarks = ({ navigation }) => {
               />
             </View>
             <View>
-              <Text style={styles.topNavTitle}>Đã lưu</Text>
+              <Text style={styles.topNavTitle}>TÌM KIẾM</Text>
             </View>
           </View>
         </View>
@@ -187,4 +187,4 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
 });
-export default Bookmarks;
+export default ListCourse;

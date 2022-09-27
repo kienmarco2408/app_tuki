@@ -16,12 +16,15 @@ import Search from './src/screens/Search';
 import Bookmarks from './src/screens/Bookmarks';
 import Profile from './src/screens/Profile';
 import Test from './src/screensComponent/Test';
-import TestDone from './src/screensComponent/TestDone';
+
 import Quiz1 from './src/screens/Quiz1';
 import Quiz2 from './src/screens/Quiz2';
 import Result from './src/screens/Result';
 import Maps from './src/screens/Maps';
 import Detail_Profes from './src/screens/Detail_Profes';
+import TestDone from './src/screensComponent/TestDone';
+import ListCourse from './src/screens/ListCourse';
+import CourseDetail from './src/screens/CourseDetail';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -84,6 +87,8 @@ function App() {
         <Stack.Screen name="Quiz2" component={Quiz2} />
         <Stack.Screen name="Result" component={Result} />
         <Stack.Screen name="Detail_Profes" component={Detail_Profes} />
+        <Stack.Screen name="ListCourse" component={ListCourse} />
+        <Stack.Screen name="CourseDetail" component={CourseDetail} />
         <Stack.Screen name="Bottom" component={BottomTabScreen} />
       </Stack.Navigator>
     </>

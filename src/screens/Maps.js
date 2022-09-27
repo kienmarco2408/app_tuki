@@ -214,6 +214,7 @@ const Maps = ({ navigation }) => {
               <View
                 style={{
                   marginTop: 5,
+                  width: '90%',
                   borderBottomColor: 'black',
                   borderBottomWidth: StyleSheet.hairlineWidth,
                 }}

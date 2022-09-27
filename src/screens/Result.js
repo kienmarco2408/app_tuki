@@ -1,16 +1,12 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Image,
-  Button,
-  ScrollView,
-} from 'react-native';
+import { View, Text, SafeAreaView, Image, ScrollView } from 'react-native';
 import React from 'react';
 import { useFonts } from 'expo-font';
 import { AntDesign } from '@expo/vector-icons';
+import { Button, NativeBaseProvider } from 'native-base';
+import { useNavigation } from '@react-navigation/native';
 
-const Result = ({ navigation }) => {
+const Result = () => {
+  const navigation = useNavigation();
   const [loaded] = useFonts({
     NunitoSans_Regular: require('../../assets/Nunito_Sans/NunitoSans-Regular.ttf'),
     NunitoSans_SemiBold: require('../../assets/Nunito_Sans/NunitoSans-SemiBold.ttf'),
@@ -39,7 +35,12 @@ const Result = ({ navigation }) => {
         >
           <View style={{ marginLeft: 20, marginTop: 40, flexDirection: 'row' }}>
             <View>
-              <AntDesign name="arrowleft" size={24} color="white" />
+              <AntDesign
+                name="arrowleft"
+                size={24}
+                color="white"
+                onPress={() => navigation.goBack()}
+              />
             </View>
             <View style={{ marginLeft: 16 }}>
               <Text
@@ -131,7 +132,12 @@ const Result = ({ navigation }) => {
                 marginTop: 50,
               }}
             >
-              <Button title="Tìm kiếm nhà chuyên môn" color="white" />
+              <Button
+                colorScheme="#447DB9"
+                onPress={() => navigation.navigate('Maps')}
+              >
+                Tìm kiếm nhà chuyển môn
+              </Button>
             </View>
             <View
               style={{
@@ -146,7 +152,12 @@ const Result = ({ navigation }) => {
                 borderWidth: 1,
               }}
             >
-              <Button title="Quay về Trang đầu" color="#447DB9" />
+              <Button
+                colorScheme="white"
+                onPress={() => navigation.navigate('Home')}
+              >
+                Quay về trang đầu
+              </Button>
             </View>
           </View>
         </ScrollView>
@@ -155,4 +166,10 @@ const Result = ({ navigation }) => {
   );
 };
 
-export default Result;
+export default () => {
+  return (
+    <NativeBaseProvider>
+      <Result />
+    </NativeBaseProvider>
+  );
+};

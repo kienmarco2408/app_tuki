@@ -4,15 +4,17 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Image,
-  Button,
 } from 'react-native';
 import React, { useState } from 'react';
 import Test from '../screensComponent/Test';
 import TestDone from '../screensComponent/TestDone';
 import PopupInfor from '../screensComponent/PopupInfor';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
+import { Button, NativeBaseProvider } from 'native-base';
+import { useNavigation } from '@react-navigation/native';
 
-const Home = ({ navigation }) => {
+const Home = () => {
+  const navigation = useNavigation();
   const [visible, setVisible] = useState(false);
   return (
     <SafeAreaView style={{ backgroundColor: 'white', height: '100%' }}>
@@ -202,10 +204,11 @@ const Home = ({ navigation }) => {
             }}
           >
             <Button
-              title="Kiểm Tra"
-              color="white"
+              colorScheme="#447DB9"
               onPress={() => navigation.push('Quiz1')}
-            />
+            >
+              Kiểm tra
+            </Button>
           </View>
         </View>
       </View>
@@ -213,4 +216,10 @@ const Home = ({ navigation }) => {
   );
 };
 
-export default Home;
+export default () => {
+  return (
+    <NativeBaseProvider>
+      <Home />
+    </NativeBaseProvider>
+  );
+};

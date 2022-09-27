@@ -3,13 +3,14 @@ import {
   Text,
   SafeAreaView,
   Image,
-  Button,
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
+import OnBoarding_3 from './onBoarding_3';
+import { Button, NativeBaseProvider } from 'native-base';
 
 const OnBoarding_2 = () => {
   const navigation = useNavigation();
@@ -129,13 +130,20 @@ const OnBoarding_2 = () => {
         }}
       >
         <Button
-          title="Đi Tiếp"
-          color="white"
+          colorScheme="#447DB9"
           onPress={() => navigation.push('OnBoarding_3')}
-        />
+        >
+          Đi tiếp
+        </Button>
       </View>
     </SafeAreaView>
   );
 };
 
-export default OnBoarding_2;
+export default () => {
+  return (
+    <NativeBaseProvider>
+      <OnBoarding_2 />
+    </NativeBaseProvider>
+  );
+};

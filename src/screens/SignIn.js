@@ -6,9 +6,8 @@ import {
   SafeAreaView,
   TextInput,
   StatusBar,
-  Button,
 } from 'react-native';
-import { NativeBaseProvider } from 'native-base';
+import { Button, NativeBaseProvider } from 'native-base';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -122,22 +121,23 @@ function SignIn() {
         </View>
 
         {/* Button*/}
-
         <View
           style={{
-            width: 350,
+            width: '85%',
             height: 48,
             backgroundColor: '#447DB9',
             borderRadius: 13,
             padding: 5,
-            marginLeft: 30,
+            marginTop: 30,
+            marginHorizontal: 30,
           }}
         >
           <Button
-            title="Log in"
-            color="white"
+            colorScheme="#447DB9"
             onPress={() => navigation.push('OnBoarding_1')}
-          />
+          >
+            Login
+          </Button>
         </View>
 
         <View
